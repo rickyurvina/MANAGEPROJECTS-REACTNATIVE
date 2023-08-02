@@ -32,6 +32,15 @@ const globalStyles = StyleSheet.create({
         borderRadius: 10,
         height: 50,
         justifyContent: 'center'
+    },
+    link:{
+        color: '#FFF',
+        marginTop: 60,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: 18,
+        textTransform: 'uppercase'
+        
     }
 });
 

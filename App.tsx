@@ -8,6 +8,11 @@ import CreateAccount from './src/views/CreateAccount';
 import type { StorageManager } from "native-base";
 import { extendTheme, NativeBaseProvider, ColorMode } from "native-base";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Projects from './src/views/Projects';
+import NewProject from './src/views/NewProject';
+import Project from './src/views/Project';
+
+
 function App(): JSX.Element {
 
   const Stack = createNativeStackNavigator();
@@ -43,29 +48,55 @@ function App(): JSX.Element {
   };
 
   return (
-    <NativeBaseProvider theme={theme}
-      colorModeManager={colorModeManager}
-    >
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{
-              title: 'Login',
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="CreateAccount"
-            component={CreateAccount}
-            options={{
-              title: 'Create Account'
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </NativeBaseProvider>
+    <>
+      <NativeBaseProvider theme={theme}
+        colorModeManager={colorModeManager}
+      >
+        <NavigationContainer>
+          <Stack.Navigator>
+            {/* <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{
+                title: 'Login',
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="CreateAccount"
+              component={CreateAccount}
+              options={{
+                title: 'Create Account',
+                headerShown: false,
+              }}
+            /> */}
+            <Stack.Screen
+              name="Projects"
+              component={Projects}
+              options={{
+                title: 'Projects',
+              }}
+            />
+            <Stack.Screen
+              name="NewProject"
+              component={NewProject}
+              options={{
+                title: 'NewProject',
+              }}
+            />
+
+            <Stack.Screen
+              name="Project"
+              component={Project}
+              options={({route})=>({
+                  title: route.params.name,
+                
+              })}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </NativeBaseProvider>
+    </>
   );
 }
 
